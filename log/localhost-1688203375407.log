@@ -1,0 +1,9 @@
+socket.io.js:1 
+        
+        
+        Failed to load resource: the server responded with a status of 404 (Not Found)
+index.html:8  Uncaught ReferenceError: io is not defined
+    at index.html:8:18
+index.html:1  Error handling response: TypeError: Cannot read properties of undefined (reading 'verdict')
+    at chrome-extension://gbbhkdkhhkohaonikfdmpcmiailpgbil/aph.js:240:18
+index.html:1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received

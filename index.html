@@ -1,26 +1,39 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+
+<head>
+    <title>Chat</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+</head>
+
 <body>
+    <h1>Chat</h1>
+    <p>Chat with other users</p>
+    <label for="input">Message:</label>
     <input id="input" autocomplete="off" /><button>Send</button>
     <ul id="messages"></ul>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-    var socket = io();
-    var input = document.getElementById('input');
-    var messages = document.getElementById('messages');
+        var socket = io();
+        var input = document.getElementById('input');
+        var messages = document.getElementById('messages');
 
-    document.querySelector('button').onclick = function() {
-        var text = input.value;
-        socket.emit('chat message', text);
-        input.value = '';
-    };
+        document.querySelector('button').onclick = function () {
+            var text = input.value;
+            socket.emit('chat message', text);
+            input.value = '';
+        };
 
-    socket.on('chat message', function(text) {
-        var item = document.createElement('li');
-        item.textContent = text;
-        messages.appendChild(item);
-        window.scrollTo(0, document.body.scrollHeight);
-    });
+        socket.on('chat message', function (text) {
+            var item = document.createElement('li');
+            item.textContent = text;
+            messages.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
+        });
     </script>
 </body>
+
 </html>
